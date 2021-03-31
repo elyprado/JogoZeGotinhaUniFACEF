@@ -18,8 +18,8 @@ public class ControleJogador : MonoBehaviour
 
     private AudioSource somMoeda;
     private AudioSource somPulo;
-    private AudioSource somChao;
-    private AudioSource somMorte;
+    //private AudioSource somChao;
+    //private AudioSource somMorte;
     private bool chao = true;
 
     CharacterController characterController;
@@ -33,8 +33,8 @@ public class ControleJogador : MonoBehaviour
 
         somMoeda = GetComponents<AudioSource>()[0];
         somPulo = GetComponents<AudioSource>()[2];
-        somChao = GetComponents<AudioSource>()[3];
-        somMorte = GetComponents<AudioSource>()[4];
+        //somChao = GetComponents<AudioSource>()[3];
+        //somMorte = GetComponents<AudioSource>()[4];
     }
     void Update()
     {
@@ -44,7 +44,7 @@ public class ControleJogador : MonoBehaviour
             //pouso do jogador após o pulo
             if (!chao)
             {
-                somChao.Play();
+                //somChao.Play();
             }
             chao = true;
 
@@ -103,7 +103,7 @@ public class ControleJogador : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Danger"))
         {
-            somMorte.Play();
+            //somMorte.Play();
         }
     }
 
