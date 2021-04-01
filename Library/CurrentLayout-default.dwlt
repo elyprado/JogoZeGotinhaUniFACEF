@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 14398
+  controlID: 17780
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 14433
+  controlID: 17751
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 14434
+  controlID: 17752
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -393,9 +393,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 68eafeffa2e3feff30e3feffbee2feff58e2fefff2e1feffb055ffff
-      m_LastClickedID: -43600
-      m_ExpandedIDs: 2c40ffffb055ffff68fbffff
+      m_SelectedIDs: 68fbffff
+      m_LastClickedID: -1176
+      m_ExpandedIDs: 0c9bffff06e9ffff68fbffff34340000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -455,9 +455,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 42.37532, y: 4.790964, z: -14.888433}
+    m_Target: {x: 64.733894, y: 1.4271545, z: 16.421516}
     speed: 2
-    m_Value: {x: 42.37532, y: 4.790964, z: -14.888433}
+    m_Value: {x: 64.733894, y: 1.4271545, z: 16.421516}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -503,13 +503,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.42453402, y: -0.040734466, z: 0.019103063, w: 0.9043185}
+    m_Target: {x: 0.31304502, y: -0.6714897, z: 0.37904635, w: 0.5545207}
     speed: 2
-    m_Value: {x: -0.424534, y: 0.040734462, z: -0.019103061, w: -0.9043185}
+    m_Value: {x: -0.313045, y: 0.6714897, z: -0.37904632, w: -0.5545207}
   m_Size:
-    m_Target: 22.285181
+    m_Target: 44.016846
     speed: 2
-    m_Value: 22.285181
+    m_Value: 44.016846
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -599,20 +599,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt
+    - Assets/Tiny_Toony_City_Extended/Meshes/Extras
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Tiny_Toony_City_Extended/Meshes/Streets/Asphalt
+  - Assets/Tiny_Toony_City_Extended/Meshes/Extras
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\dev\JogoZeGotinhaUniFACEF
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 250}
-    m_SelectedIDs: 02b00000
-    m_LastClickedID: 45058
-    m_ExpandedIDs: 0000000088a200009ca20000a2a2000060ae000000ca9a3b
+    scrollPos: {x: 0, y: 191}
+    m_SelectedIDs: bc590000
+    m_LastClickedID: 22972
+    m_ExpandedIDs: 0000000096590000a8590000ae59000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -640,7 +640,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000088a2000000ca9a3b
+    m_ExpandedIDs: 000000009659000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -668,7 +668,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c6230000969a0000
+    m_ExpandedInstanceIDs: c6230000969a00001a5e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -692,7 +692,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 125.5}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 215
