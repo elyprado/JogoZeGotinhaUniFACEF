@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 16
+  controlID: 47
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 72
+  controlID: 48
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 73
+  controlID: 110
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -394,9 +394,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: ecc0ffff
-      m_LastClickedID: -16148
-      m_ExpandedIDs: ecc0ffff0ef9ffff
+      m_SelectedIDs: 68fbffff
+      m_LastClickedID: -1176
+      m_ExpandedIDs: 68fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -456,9 +456,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 201.77673, y: -53.18879, z: -130.83939}
+    m_Target: {x: 190, y: 6.9798613, z: -27}
     speed: 2
-    m_Value: {x: 201.77673, y: -53.18879, z: -130.83939}
+    m_Value: {x: 189.99998, y: 6.9798617, z: -27}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -506,11 +506,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.6202183, y: 0.030771121, z: -0.024354191, w: -0.78348434}
     speed: 2
-    m_Value: {x: -0.62020016, y: 0.030770224, z: -0.02435348, w: -0.78346145}
+    m_Value: {x: -0.15689962, y: -0.81224555, z: 0.50091046, w: -0.25441772}
   m_Size:
-    m_Target: 253.53813
+    m_Target: 113.35219
     speed: 2
-    m_Value: 253.53813
+    m_Value: 113.35219
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -600,20 +600,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Tiny_Toony_City_Extended/Prefabs
+    - Assets/Tiny_Toony_City_Extended/Prefabs/Minas Gerais
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Tiny_Toony_City_Extended/Prefabs
+  - Assets/Tiny_Toony_City_Extended/Prefabs/Minas Gerais
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\dev\Jogos\JogoZeGotinhaUniFACEF
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 298}
-    m_SelectedIDs: b6990000
-    m_LastClickedID: 39350
-    m_ExpandedIDs: 00000000b2990000b4990000b6990000ba990000bc990000d099000000ca9a3b
+    scrollPos: {x: 0, y: 346}
+    m_SelectedIDs: beb80000
+    m_LastClickedID: 47294
+    m_ExpandedIDs: 0000000080b8000082b8000084b8000086b8000088b800008ab8000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -641,7 +641,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b2990000b4990000b6990000b8990000ba990000bc990000
+    m_ExpandedIDs: 0000000080b8000082b8000084b8000086b8000088b800008ab80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
