@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 471}
   m_MaxSize: {x: 14001, y: 14021}
   vertical: 0
-  controlID: 5449
+  controlID: 670
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 471}
   m_MaxSize: {x: 10000, y: 14021}
   vertical: 1
-  controlID: 5479
+  controlID: 675
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 5480
+  controlID: 676
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -394,9 +394,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: bce3ffff
-      m_LastClickedID: -7236
-      m_ExpandedIDs: bce3ffff
+      m_SelectedIDs: d6ad0200
+      m_LastClickedID: 175574
+      m_ExpandedIDs: 4efffbff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -449,16 +449,16 @@ MonoBehaviour:
   m_ShowContextualTools: 0
   m_WindowGUID: a90c6cb0a57d16e47b1c9ed7ccf350f9
   m_Gizmos: 1
-  m_SceneIsLit: 1
+  m_SceneIsLit: 0
   m_SceneLighting: 1
   m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 3, z: 0}
+    m_Target: {x: -39.83185, y: 0, z: 19.215536}
     speed: 2
-    m_Value: {x: 0, y: 3, z: 0}
+    m_Value: {x: -39.83185, y: 0.00000081793036, z: 19.215534}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_SceneViewState:
     showFog: 1
     showMaterialUpdate: 0
-    showSkybox: 1
+    showSkybox: 0
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -504,13 +504,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.44553778, y: 0.45008683, z: -0.27756318, w: 0.7224519}
+    m_Target: {x: -0.2942542, y: 0.6652042, z: -0.32328236, w: -0.6053723}
     speed: 2
-    m_Value: {x: 0.44553778, y: 0.45008683, z: -0.27756318, w: 0.722452}
+    m_Value: {x: -0.2932729, y: 0.6669943, z: -0.32415244, w: -0.6033531}
   m_Size:
-    m_Target: 10
+    m_Target: 37.1362
     speed: 2
-    m_Value: 10
+    m_Value: 35.537033
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -600,20 +600,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Tiny_Toony_City_Extended/Prefabs/Minas Gerais/materiais-skybox
+    - Assets/Tiny_Toony_City_Extended/Prefabs/Minas Gerais
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Tiny_Toony_City_Extended/Prefabs/Minas Gerais/materiais-skybox
+  - Assets/Tiny_Toony_City_Extended/Prefabs/Minas Gerais
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\dev\Jogos\JogoZeGotinhaUniFACEF
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 414}
-    m_SelectedIDs: dca50000
-    m_LastClickedID: 42460
-    m_ExpandedIDs: 0000000062a5000064a5000066a5000068a500006aa500006ca50000a4a5000000ca9a3b
+    scrollPos: {x: 0, y: 442}
+    m_SelectedIDs: 509c0000
+    m_LastClickedID: 40016
+    m_ExpandedIDs: 00000000109c0000129c0000149c0000169c0000189c00001a9c0000509c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -641,7 +641,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000062a5000064a5000066a5000068a500006aa500006ca5000000ca9a3b
+    m_ExpandedIDs: 00000000109c0000129c0000149c0000169c0000189c00001a9c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -668,7 +668,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
