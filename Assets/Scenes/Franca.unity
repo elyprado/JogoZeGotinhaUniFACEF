@@ -23331,6 +23331,75 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3173644202250210820, guid: a6bd931c8d6cb904084d02c78889a8bd, type: 3}
+--- !u!1001 &2550977697480556794
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4884481839429346670, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884481839429346670, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 110.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884481839429346670, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884481839429346670, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 72.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884481839429346670, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884481839429346670, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884481839429346670, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884481839429346670, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884481839429346670, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884481839429346670, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884481839429346670, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232127579893420684, guid: 1a2969afdf7242b45be7564e555e853c,
+        type: 3}
+      propertyPath: m_Name
+      value: McDonalds
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1a2969afdf7242b45be7564e555e853c, type: 3}
 --- !u!1001 &4131483751831810207
 PrefabInstance:
   m_ObjectHideFlags: 0
