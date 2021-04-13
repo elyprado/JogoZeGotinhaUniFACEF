@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 2498
     height: 987
-  m_MinSize: {x: 579, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 577, y: 450}
+  m_MaxSize: {x: 14000, y: 14021}
   vertical: 0
-  controlID: 12731
+  controlID: 19976
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,10 +138,10 @@ MonoBehaviour:
     y: 0
     width: 1922
     height: 987
-  m_MinSize: {x: 303, y: 492}
-  m_MaxSize: {x: 10001, y: 14042}
+  m_MinSize: {x: 302, y: 450}
+  m_MaxSize: {x: 10000, y: 14021}
   vertical: 1
-  controlID: 12682
+  controlID: 19977
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,10 +163,10 @@ MonoBehaviour:
     y: 0
     width: 1922
     height: 712
-  m_MinSize: {x: 303, y: 221}
-  m_MaxSize: {x: 8003, y: 4021}
+  m_MinSize: {x: 302, y: 200}
+  m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 12683
+  controlID: 19934
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -186,8 +186,8 @@ MonoBehaviour:
     y: 0
     width: 537
     height: 712
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -221,10 +221,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 418}
+      scrollPos: {x: 0, y: 6862}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: c8f7feff68fbffffde510000
+      m_ExpandedIDs: 24bcfeff7cbcfeffcae1feffc8c9ffff68fbffff123500004659000086620000d4780000208a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -312,9 +312,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -27.089893, y: -9.011036, z: 6.8395042}
+    m_Target: {x: 53.379547, y: -22.546818, z: 50.55353}
     speed: 2
-    m_Value: {x: -27.089893, y: -9.011036, z: 6.8395042}
+    m_Value: {x: 53.379547, y: -22.546818, z: 50.55353}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -360,20 +360,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.020784566, y: -0.9595145, z: 0.2711387, w: 0.07352606}
+    m_Target: {x: -0.17904152, y: 0.8200257, z: -0.4061635, w: -0.36140501}
     speed: 2
-    m_Value: {x: 0.020784333, y: -0.95950377, z: 0.27113566, w: 0.073525235}
+    m_Value: {x: -0.17903432, y: 0.8199927, z: -0.4061472, w: -0.3613905}
   m_Size:
-    m_Target: 27.80891
+    m_Target: 64.46879
     speed: 2
-    m_Value: 27.80891
+    m_Value: 64.46879
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1.1
-    m_SpeedNormalized: 0.55748737
+    m_Speed: 1.2
+    m_SpeedNormalized: 0.58748734
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -436,8 +436,8 @@ MonoBehaviour:
     y: 712
     width: 1922
     height: 275
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
@@ -482,34 +482,34 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Tiny_Toony_City_Extended/Meshes/Extras
+    - Assets/Tiny_Toony_City_Extended/Prefabs/Buildings
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Tiny_Toony_City_Extended/Meshes/Extras
+  - Assets/Tiny_Toony_City_Extended/Prefabs/Buildings
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\JogoZeGotinhaUniFACEF
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 360}
-    m_SelectedIDs: 4a760100
-    m_LastClickedID: 95818
-    m_ExpandedIDs: 00000000027601000476010006760100087601000a76010000ca9a3b
+    scrollPos: {x: 0, y: 442}
+    m_SelectedIDs: 2e910100
+    m_LastClickedID: 102702
+    m_ExpandedIDs: 00000000d6900100d8900100da900100dc900100de90010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Roads
+      m_OriginalName: Roads
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 102706
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -523,7 +523,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000027601000476010006760100087601000a76010000ca9a3b
+    m_ExpandedIDs: 00000000d6900100d8900100da900100dc900100de90010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -548,8 +548,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a608ffff8cfffefffefcfeff90fbfeff28fbfefff4fafeffc0fafeff8cfafeff58fafeff24fafefff0f9feffbcf9feff86f9feff54f9feff1cfefeff4efefeff0808ffff3e08ffff7008ffff3a07ffff6e07ffffe403ffff5c03ffffce02ffff9c02ffff6a02ffff3402ffff0202ffffd001ffff9e01ffff6c01ffff3a01fffffa05fffffc05ffff9605ffff6405ffffac04ffff7a04ffff4804ffff1604ffff
-    m_LastClickedInstanceID: -63322
+    m_SelectedInstanceIDs: 36560000
+    m_LastClickedInstanceID: 22070
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000969a000000000000c0390000ec580000
     m_RenameOverlay:
@@ -575,7 +575,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 93}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 215
@@ -598,8 +598,8 @@ MonoBehaviour:
     y: 0
     width: 576
     height: 987
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -641,5 +641,5 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: -67244
+  m_LastInspectedObjectInstanceID: 22070
   m_LastVerticalScrollValue: 0
