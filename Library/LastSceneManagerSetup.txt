@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/RioDeJaneiro.unity
+=======
+- path: Assets/Scenes/Unifacef.unity
+>>>>>>> main
   isLoaded: 1
   isActive: 1
   isSubScene: 0
