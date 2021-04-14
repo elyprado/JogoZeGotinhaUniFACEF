@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":false,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-148.95455932617188,"y":-176.945556640625,"z":-22.12152099609375},"rotation":{"x":0.233686625957489,"y":-0.7618812322616577,"z":0.3773706257343292,"w":0.47176888585090639},"size":119.36984252929688,"orthographic":false}
+=======
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":14.859033584594727,"y":12.398286819458008,"z":-40.941505432128909},"rotation":{"x":-0.6052617430686951,"y":-0.027396440505981447,"z":0.02046731300652027,"w":-0.7954866886138916},"size":50.323062896728519,"orthographic":false}
 =======
 <<<<<<< HEAD
@@ -8,6 +11,7 @@
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-1.5334160327911378,"y":-253.59713745117188,"z":-290.8713684082031},"rotation":{"x":-0.002278852742165327,"y":-0.9419782161712647,"z":0.3356630206108093,"w":-0.006510172970592976},"size":236.336181640625,"orthographic":false}
 =======
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":15.647809982299805,"y":-11.038074493408204,"z":-23.48247528076172},"rotation":{"x":-0.3027699887752533,"y":-0.6411254405975342,"z":0.30476313829421999,"w":-0.636040449142456},"size":11.435890197753907,"orthographic":false}
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
