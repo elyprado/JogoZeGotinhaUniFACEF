@@ -671,6 +671,10 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+<<<<<<< HEAD
+=======
+    Build: 1
+>>>>>>> main
     Collab: 1
     UNet: 1
   luminIcon:
@@ -685,10 +689,17 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
+<<<<<<< HEAD
   cloudProjectId: 1e2783ac-aa0b-4090-b920-be0b69f56990
   framebufferDepthMemorylessMode: 0
   projectName: JogoZeGotinhaUniFACEF2
   organizationId: liubergaria
+=======
+  cloudProjectId: 1a66167f-c45f-4084-9645-42564eb5ff47
+  framebufferDepthMemorylessMode: 0
+  projectName: JogoZeGotinhaUniFACEF
+  organizationId: tarcisioribeiro
+>>>>>>> main
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

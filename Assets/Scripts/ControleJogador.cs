@@ -90,6 +90,12 @@ public class ControleJogador : MonoBehaviour
         rotation.x = Mathf.Clamp(rotation.x, -lookXLimit, lookXLimit);
         playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 0, 0);
         transform.eulerAngles = new Vector2(0, rotation.y);
+    
+        if(Input.GetKeyDown(KeyCode.Escape) == true)
+        {
+            Application.Quit();
+        }
+    
     }
 
     void OnTriggerEnter(Collider other)
