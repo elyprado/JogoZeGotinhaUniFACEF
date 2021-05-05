@@ -1,4 +1,4 @@
-﻿
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ControleJogador : MonoBehaviour
 {
-    public float speed = 7.5f;
+    public float speed = 0.05f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public Transform playerCameraParent;
@@ -25,6 +25,7 @@ public class ControleJogador : MonoBehaviour
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     Vector2 rotation = Vector2.zero;
+    private Animator animator;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class ControleJogador : MonoBehaviour
         somPulo = GetComponents<AudioSource>()[2];
         //somChao = GetComponents<AudioSource>()[3];
         //somMorte = GetComponents<AudioSource>()[4];
+        animator = gameObject.transform.GetChild (1).gameObject.GetComponent<Animator> ();
     }
     void Update()
     {
@@ -60,7 +62,11 @@ public class ControleJogador : MonoBehaviour
             }
             moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-           
+           if (curSpeedX>0) {
+               animator.SetBool ("andando", true);
+           } else {
+               animator.SetBool ("andando", false);
+           }
 
             if (Input.GetButton("Jump"))
             {
