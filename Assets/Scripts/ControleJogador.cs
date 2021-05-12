@@ -21,6 +21,7 @@ public class ControleJogador : MonoBehaviour
     //private AudioSource somChao;
     //private AudioSource somMorte;
     private bool chao = true;
+    private bool dancando = false;
 
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
@@ -40,7 +41,7 @@ public class ControleJogador : MonoBehaviour
     }
     void Update()
     {
-        if (characterController.isGrounded)
+        if (characterController.isGrounded && dancando == false )
         {
 
             //pouso do jogador após o pulo
@@ -55,24 +56,27 @@ public class ControleJogador : MonoBehaviour
             Vector3 right = transform.TransformDirection(Vector3.right);
             float curSpeedX = speed * Input.GetAxis("Vertical");
             float curSpeedY = speed * Input.GetAxis("Horizontal");
-            if (Input.GetButton("Fire3"))
-            {
-                curSpeedX = curSpeedX * 2;
-                curSpeedY = curSpeedY * 2;
+            if (Input.GetButton("Fire3") && curSpeedX>0) {
+                //correndo
+                curSpeedX = curSpeedX * 3;
             }
+            
+            //andando para o lado
+            animator.SetInteger("lado", (int) curSpeedY);
+            animator.SetInteger("frente", (int) curSpeedX);
+
+            //movimenta personagem
             moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-           if (curSpeedX>0) {
-               animator.SetBool ("andando", true);
-           } else {
-               animator.SetBool ("andando", false);
-           }
-
+           
+           
+            animator.SetBool("pulando", false);
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
                 somPulo.Play();
                 chao = false;
+                animator.SetBool("pulando", true);
             }
         }
 
@@ -104,19 +108,5 @@ public class ControleJogador : MonoBehaviour
     
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Moeda"))
-        {
-            other.gameObject.SetActive(false);
-            pontuacao++;
-            txtPontuacao.text = "" + pontuacao;
-            somMoeda.Play();
-        }
-        else if (other.gameObject.CompareTag("Danger"))
-        {
-            //somMorte.Play();
-        }
-    }
 
 }
