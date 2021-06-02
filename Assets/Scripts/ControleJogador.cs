@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +26,8 @@ public class ControleJogador : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     Vector2 rotation = Vector2.zero;
     private Animator animator;
+
+    private GameObject npc = null;
 
     void Start()
     {
@@ -108,5 +109,64 @@ public class ControleJogador : MonoBehaviour
     
     }
 
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("NPC") && npc == null) {
+            //pegar NPC
+            if (other.gameObject.GetComponent<ControleNPC>().hospitalizado) {
+                return;
+            }
+            pontuacao++;
+            txtPontuacao.text = "" + pontuacao;
+
+            somMoeda.Play();
+
+            //pegar NPC
+            other.transform.parent = transform;
+            other.transform.localPosition = new Vector3(0.7f,-0.2f,0.5f);
+            other.transform.rotation =  transform.rotation;
+            other.transform.Rotate(-90.0f, 0.0f, 90.0f, Space.Self);
+
+            animator.SetInteger("lado", 0);
+            animator.SetInteger("frente", 0);
+            animator.SetBool("pulando", false);
+            animator.SetBool("carregando", true);
+
+            npc = other.gameObject;
+            npc.GetComponent<ControleNPC>().carregado = true;
+            npc.GetComponent<Rigidbody>().isKinematic = true;
+        } else if (other.gameObject.CompareTag("Hospital") && npc != null) {
+            //Destroy(npc);
+            Renderer[] renders = npc.GetComponentsInChildren<Renderer>();
+            foreach (Renderer r in renders) {
+                r.enabled = false;
+            }
+            npc.GetComponent<ControleNPC>().carregado = false;
+            npc.GetComponent<ControleNPC>().hospitalizado = true;
+            npc.GetComponent<ControleNPC>().tempoHospital = 0F;
+            npc.transform.parent = null;
+
+            npc = null;
+
+            animator.SetInteger("lado", 0);
+            animator.SetInteger("frente", 0);
+            animator.SetBool("pulando", false);
+            animator.SetBool("carregando", false);
+        }
+    }
+
+    void iniciarDanca() {
+        animator.SetInteger("lado", 0);
+        animator.SetInteger("frente", 0);
+        animator.SetBool("pulando", false);
+        animator.SetBool("dancando", true);
+        dancando = true;
+        Invoke("pararDanca", 10.0f);
+        moveDirection = Vector3.zero;
+    }
+
+    void pararDanca() {
+        animator.SetBool("dancando", false);
+        dancando = false;
+    }
 
 }
