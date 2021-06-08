@@ -115,6 +115,9 @@ public class ControleJogador : MonoBehaviour
             if (other.gameObject.GetComponent<ControleNPC>().hospitalizado) {
                 return;
             }
+            if (other.gameObject.GetComponent<ControleNPC>().doente == false) {
+                return;
+            }
             pontuacao++;
             txtPontuacao.text = "" + pontuacao;
 
@@ -143,6 +146,8 @@ public class ControleJogador : MonoBehaviour
             npc.GetComponent<ControleNPC>().carregado = false;
             npc.GetComponent<ControleNPC>().hospitalizado = true;
             npc.GetComponent<ControleNPC>().tempoHospital = 0F;
+            
+            //TODO DESATIVAR COLISAO
             npc.transform.parent = null;
 
             npc = null;
