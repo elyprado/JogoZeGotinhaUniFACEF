@@ -134,9 +134,12 @@ public class ControleJogador : MonoBehaviour
             animator.SetBool("pulando", false);
             animator.SetBool("carregando", true);
 
+            
+
             npc = other.gameObject;
             npc.GetComponent<ControleNPC>().carregado = true;
             npc.GetComponent<Rigidbody>().isKinematic = true;
+            npc.GetComponent<ControleNPC>().pegaNPC();
         } else if (other.gameObject.CompareTag("Hospital") && npc != null) {
             //Destroy(npc);
             Renderer[] renders = npc.GetComponentsInChildren<Renderer>();
@@ -147,7 +150,7 @@ public class ControleJogador : MonoBehaviour
             npc.GetComponent<ControleNPC>().hospitalizado = true;
             npc.GetComponent<ControleNPC>().tempoHospital = 0F;
             
-            //TODO DESATIVAR COLISAO
+            npc.GetComponent<ControleNPC>().desligaColisao();
             npc.transform.parent = null;
 
             npc = null;

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CapsuleCollider))]
 public class ControleNPC : MonoBehaviour {
     public bool doente = false;
     public bool carregado = false;
@@ -16,11 +18,41 @@ public class ControleNPC : MonoBehaviour {
     //velocidade
     private float speed = 1.0F;
 
+    private CapsuleCollider cc2;
+    private Animator animator;
+
     void Start() {
+         //edita configurações do rigidbody
+         Rigidbody rb = GetComponent<Rigidbody>();
+         rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+         //1o ajusta capsule colider de fora
+         CapsuleCollider cc = GetComponent<CapsuleCollider>();
+         cc.center = new Vector3(0, 0.9f, 0);
+         cc.radius = 0.51f;
+         cc.height = 1.8f;
+         cc.isTrigger = true;
+
+         //cria um capsule colider por dentro
+         cc2 = gameObject.AddComponent<CapsuleCollider>();
+         cc2.center = new Vector3(0, 0.7f, 0);
+         cc2.radius = 0.30f;
+         cc2.height = 1.4f;
+         cc2.isTrigger = false;
+
         target = new GameObject();
         Debug.Log("Inicio");
         //inicia para nova direção
         novaDirecao();
+
+
+        animator = gameObject.GetComponent<Animator>();
+        if (doente) {
+            aplicaMaterialCovid();
+            animator.SetBool("doente", true);
+        }
+
+        
     }
     void novaDirecao() {
         Vector3 p = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
@@ -43,7 +75,6 @@ public class ControleNPC : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
 
             //rotacionar   
-            Vector3 originalRotation = transform.rotation.eulerAngles;
             Vector3 targetDir = target.transform.position - transform.position;
             Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
             transform.rotation = Quaternion.LookRotation(newDir);
@@ -59,11 +90,16 @@ public class ControleNPC : MonoBehaviour {
                 Renderer[] renders = gameObject.GetComponentsInChildren<Renderer>();
                 foreach (Renderer r in renders) {
                     r.enabled = true;
+                    r.material = materialSaudavel;
                 }
-                //TODO REATIVAR COLISAO
+                ligaColisao();
 
                 //tira o NPC do hospital
                 hospitalizado = false;
+                doente = false;
+                animator.SetBool("doente", false);
+                animator.SetBool("carregando", false);
+                
                 GetComponent<Rigidbody>().isKinematic = false;
                 novaDirecao();
             }
@@ -88,15 +124,31 @@ public class ControleNPC : MonoBehaviour {
             if (c.doente==true && c.carregado==false && doente == false) {
                 Debug.Log("Contaminou");
                 doente = true;
-                //permite aplicar um novo material em todos os filhos do objeto
-                Renderer[] renders = gameObject.GetComponentsInChildren<Renderer>();
-                foreach (Renderer r in renders) {
-                    r.material = materialCovid;
-                }
+                aplicaMaterialCovid();
             }
         }
     }
 
+    public void desligaColisao() {
+        cc2.isTrigger = true;
+    }
+    public void pegaNPC() {
+        animator.SetBool("doente", false);
+        animator.SetBool("carregando", true);
+    }
+    void ligaColisao() {
+        cc2.isTrigger = false;
+    }
+
+    void aplicaMaterialCovid() {
+        //permite aplicar um novo material em todos os filhos do objeto
+        Renderer[] renders = gameObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in renders) {
+            r.material = materialCovid;
+        }
+        animator.SetBool("doente", true);
+        animator.SetBool("carregando", false);
+    }
     void onTriggerEnter(Collider other) {
         
     }
