@@ -12,13 +12,12 @@ public class ControleJogador : MonoBehaviour
     public Transform playerCameraParent;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 60.0f;
-    public Text txtPontuacao;
-    private int pontuacao = 0;
-
-    private AudioSource somMoeda;
+    
+    
+    private AudioSource somPegaNPC;
     private AudioSource somPulo;
-    //private AudioSource somChao;
-    //private AudioSource somMorte;
+    private AudioSource somHospital;
+    private AudioSource somVacinar;
     private bool chao = true;
     private bool dancando = false;
 
@@ -29,19 +28,36 @@ public class ControleJogador : MonoBehaviour
 
     private GameObject npc = null;
 
+    private InformacoesHUD hud;
+
+    public static bool pausado = false;
+
     void Start()
     {
+        hud = UnityEngine.Object.FindObjectOfType<InformacoesHUD>() ;
+        
+
+
         characterController = GetComponent<CharacterController>();
         rotation.y = transform.eulerAngles.y;
 
-        somMoeda = GetComponents<AudioSource>()[0];
+        somPegaNPC = GetComponents<AudioSource>()[0];
         somPulo = GetComponents<AudioSource>()[2];
-        //somChao = GetComponents<AudioSource>()[3];
-        //somMorte = GetComponents<AudioSource>()[4];
+        somHospital = GetComponents<AudioSource>()[3];
+        somVacinar = GetComponents<AudioSource>()[4];
         animator = gameObject.transform.GetChild (1).gameObject.GetComponent<Animator> ();
     }
+
+
     void Update()
     {
+
+        if (ControleJogador.pausado) {
+            //pausa todos NPCs enquanto estiver vacinando
+            return;
+        }
+
+
         if (characterController.isGrounded && dancando == false )
         {
 
@@ -110,18 +126,44 @@ public class ControleJogador : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
+        if (ControleJogador.pausado) {
+            //pausa todos NPCs enquanto estiver vacinando
+            return;
+        }
+
         if (other.gameObject.CompareTag("NPC") && npc == null) {
             //pegar NPC
             if (other.gameObject.GetComponent<ControleNPC>().hospitalizado) {
                 return;
             }
             if (other.gameObject.GetComponent<ControleNPC>().doente == false) {
+                if (other.gameObject.GetComponent<ControleNPC>().vacinado == false) {
+                    //gira o jogador em direção ao NPC
+                    Vector3 targetDir = other.gameObject.transform.position;
+                    targetDir.y = transform.position.y;
+                    transform.LookAt(targetDir);
+
+                    pausado = true;
+                    animator.SetInteger("lado", 0);
+                    animator.SetInteger("frente", 0);
+                    animator.SetBool("pulando", false);
+                    animator.SetBool("dancando", false);
+                    animator.SetBool("vacinando", true);
+                    
+                    Invoke("despausar", 1.0f);
+
+                    somVacinar.Play();
+                    other.gameObject.GetComponent<ControleNPC>().aplicaMaterialVacinado();
+                    hud.vacinados++;
+                    hud.saudaveis--;
+                    hud.atualizarTextos();
+                }
                 return;
             }
-            pontuacao++;
-            txtPontuacao.text = "" + pontuacao;
+            //pontuacao++;
+            //txtPontuacao.text = "" + pontuacao;
 
-            somMoeda.Play();
+            somPegaNPC.Play();
 
             //pegar NPC
             other.transform.parent = transform;
@@ -141,6 +183,7 @@ public class ControleJogador : MonoBehaviour
             npc.GetComponent<Rigidbody>().isKinematic = true;
             npc.GetComponent<ControleNPC>().pegaNPC();
         } else if (other.gameObject.CompareTag("Hospital") && npc != null) {
+            somHospital.Play();
             //Destroy(npc);
             Renderer[] renders = npc.GetComponentsInChildren<Renderer>();
             foreach (Renderer r in renders) {
@@ -159,6 +202,13 @@ public class ControleJogador : MonoBehaviour
             animator.SetInteger("frente", 0);
             animator.SetBool("pulando", false);
             animator.SetBool("carregando", false);
+            hud.doentes--;
+            hud.hospitalizados++;
+            hud.atualizarTextos();
+            if (hud.doentes == 0) {
+                iniciarDanca();
+
+            }
         }
     }
 
@@ -175,6 +225,11 @@ public class ControleJogador : MonoBehaviour
     void pararDanca() {
         animator.SetBool("dancando", false);
         dancando = false;
+    }
+
+    void despausar() {
+        pausado = false;
+        animator.SetBool("vacinando", false);
     }
 
 }
