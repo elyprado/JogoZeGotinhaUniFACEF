@@ -11,9 +11,9 @@ public class ControleNPC : MonoBehaviour {
     public bool vacinado = false;
     public float tempoHospital = 0F;
 
-    public Material materialCovid;
-    public Material materialSaudavel;
-    public Material materialVacinado;
+    private Material materialCovid;
+    private Material materialSaudavel;
+    private Material materialVacinado;
 
     //ponto de destino
     private GameObject target;
@@ -75,6 +75,13 @@ public class ControleNPC : MonoBehaviour {
 
         
     }
+    
+    public void marcaNPCDoente() {
+        doente = true;
+        aplicaMaterialCovid();
+        animator.SetBool("doente", true);
+    }
+
     void novaDirecao() {
         float x = UnityEngine.Random.Range(-6, 6);
         float z =  UnityEngine.Random.Range(-6, 6);

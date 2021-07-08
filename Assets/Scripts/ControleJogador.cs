@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 //adiciona o componente CharacterController automaticamente
 [RequireComponent(typeof(CharacterController))]
@@ -32,8 +34,15 @@ public class ControleJogador : MonoBehaviour
 
     public static bool pausado = false;
 
+    public GameObject seta;
+    private int quantLoopsSeta = 0;
+    public GameObject painelPause;
+
     void Start()
     {
+        pausado = false;
+        painelPause.SetActive (false);
+
         hud = UnityEngine.Object.FindObjectOfType<InformacoesHUD>() ;
         
 
@@ -46,7 +55,12 @@ public class ControleJogador : MonoBehaviour
         somHospital = GetComponents<AudioSource>()[3];
         somVacinar = GetComponents<AudioSource>()[4];
         animator = gameObject.transform.GetChild (1).gameObject.GetComponent<Animator> ();
+
+
+        
     }
+
+    
 
 
     void Update()
@@ -118,13 +132,54 @@ public class ControleJogador : MonoBehaviour
         playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 0, 0);
         transform.eulerAngles = new Vector2(0, rotation.y);
     
-        if(Input.GetKeyDown(KeyCode.Escape) == true)
+        if(Input.GetKeyDown(KeyCode.Escape) == true || Input.GetKeyDown(KeyCode.JoystickButton7))
         {
-            Application.Quit();
+            abrirMenuPause();
         }
     
+        quantLoopsSeta++;
+        if (quantLoopsSeta>15) {
+            quantLoopsSeta = 0;
+            atualizaPosicaoSeta();
+        }        
     }
 
+    void atualizaPosicaoSeta() {
+        GameObject[] outros;
+        if (npc==null) {
+            //mostra os doentes
+            outros = GameObject.FindGameObjectsWithTag("NPC");
+        } else {
+            //mostra o hospital
+            outros = GameObject.FindGameObjectsWithTag("Hospital");
+        }
+
+        GameObject targetSeta = null;
+        float menorDistancia = 0;
+        foreach (GameObject n in outros) {
+            if (npc==null) {
+                if (n.GetComponent<ControleNPC>().doente && ! n.GetComponent<ControleNPC>().hospitalizado) {
+                    //compara se este é o npc mais próximo
+                    float d = Vector3.Distance (transform.position, n.transform.position);
+                    if (targetSeta==null) {
+                        targetSeta = n;
+                        menorDistancia = d;
+                    } else {
+                        if (d<menorDistancia) {
+                            targetSeta = n;
+                            menorDistancia = d;
+                        }
+                    }
+                }
+            } else {
+                targetSeta = n;
+                break;
+            }
+        }
+        if (targetSeta!=null) {
+            seta.transform.LookAt(targetSeta.transform.position);
+        }
+    }
     void OnTriggerEnter(Collider other) {
         if (ControleJogador.pausado) {
             //pausa todos NPCs enquanto estiver vacinando
@@ -138,25 +193,27 @@ public class ControleJogador : MonoBehaviour
             }
             if (other.gameObject.GetComponent<ControleNPC>().doente == false) {
                 if (other.gameObject.GetComponent<ControleNPC>().vacinado == false) {
-                    //gira o jogador em direção ao NPC
-                    Vector3 targetDir = other.gameObject.transform.position;
-                    targetDir.y = transform.position.y;
-                    transform.LookAt(targetDir);
+                    if (!dancando) {
+                        //gira o jogador em direção ao NPC
+                        Vector3 targetDir = other.gameObject.transform.position;
+                        targetDir.y = transform.position.y;
+                        transform.LookAt(targetDir);
 
-                    pausado = true;
-                    animator.SetInteger("lado", 0);
-                    animator.SetInteger("frente", 0);
-                    animator.SetBool("pulando", false);
-                    animator.SetBool("dancando", false);
-                    animator.SetBool("vacinando", true);
-                    
-                    Invoke("despausar", 1.0f);
+                        pausado = true;
+                        animator.SetInteger("lado", 0);
+                        animator.SetInteger("frente", 0);
+                        animator.SetBool("pulando", false);
+                        animator.SetBool("dancando", false);
+                        animator.SetBool("vacinando", true);
+                        
+                        Invoke("despausar", 1.0f);
 
-                    somVacinar.Play();
-                    other.gameObject.GetComponent<ControleNPC>().aplicaMaterialVacinado();
-                    hud.vacinados++;
-                    hud.saudaveis--;
-                    hud.atualizarTextos();
+                        somVacinar.Play();
+                        other.gameObject.GetComponent<ControleNPC>().aplicaMaterialVacinado();
+                        hud.vacinados++;
+                        hud.saudaveis--;
+                        hud.atualizarTextos();
+                    }
                 }
                 return;
             }
@@ -218,18 +275,47 @@ public class ControleJogador : MonoBehaviour
         animator.SetBool("pulando", false);
         animator.SetBool("dancando", true);
         dancando = true;
-        Invoke("pararDanca", 10.0f);
+        Invoke("pararDanca", 5.0f);
         moveDirection = Vector3.zero;
     }
 
     void pararDanca() {
         animator.SetBool("dancando", false);
         dancando = false;
+        string cena = SceneManager.GetActiveScene().name;
+        if (cena == "Unifacef") {
+            SceneManager.LoadScene("Franca",LoadSceneMode.Single);
+        } else if (cena == "Franca") {
+            SceneManager.LoadScene("RioDeJaneiro",LoadSceneMode.Single);
+        } else if (cena == "RioDeJaneiro") {
+            SceneManager.LoadScene("MinasGerais",LoadSceneMode.Single);
+        } else if (cena == "MinasGerais") {
+            SceneManager.LoadScene("Bahia",LoadSceneMode.Single);
+        } else if (cena == "Bahia") {
+            SceneManager.LoadScene("Unifacef",LoadSceneMode.Single);
+        }
     }
 
     void despausar() {
         pausado = false;
         animator.SetBool("vacinando", false);
+    }
+
+    void abrirMenuPause() {
+        pausado = true;
+        animator.SetInteger("lado", 0);
+        animator.SetInteger("frente", 0);
+        animator.SetBool("pulando", false);
+        animator.SetBool("dancando", false);
+        animator.SetBool("vacinando", false);
+        painelPause.SetActive (true);
+    }
+    public void fecharMenuPause() {
+        pausado = false;
+        painelPause.SetActive (false);
+    }
+    public void sairJogo() {
+        SceneManager.LoadScene("MenuInicial");
     }
 
 }

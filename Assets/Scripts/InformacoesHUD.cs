@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,15 +17,42 @@ public class InformacoesHUD : MonoBehaviour
 
     void Start()
     {
-        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>() ;
-        foreach(GameObject go in allObjects) {
-            if (go.CompareTag("NPC")) {
-                ControleNPC n = go.GetComponent<ControleNPC>();
-                if (n.doente) {
-                    doentes++;
-                } else {
-                    saudaveis++;
+        atualizarTextos();
+        Invoke("inicializaJogo", 1.0f);
+    }
+    void inicializaJogo() {
+        //coloca um % dos NPCs como doentes aleatoriamente
+        GameObject[] outros = GameObject.FindGameObjectsWithTag("NPC");
+        //outros[0].GetComponent<ControleNPC>().marcaNPCDoente();
+        int qut = outros.Length * 15 / 100;
+        Debug.Log("qut: " + qut);
+        int qutd = 0;
+        int tentativas = 0;
+        while (qutd < qut) {
+            int n = UnityEngine.Random.Range(0, outros.Length-1);
+            try {
+                if (! outros[n].GetComponent<ControleNPC>().doente) {
+                    outros[n].GetComponent<ControleNPC>().marcaNPCDoente();
+                    qutd++;
+                    Debug.Log("qutd: " + qutd);
                 }
+            } catch (Exception e) {
+            }
+            tentativas++;
+            if (tentativas > (outros.Length*2)) {
+                break;
+            }
+        }
+
+        //Atualiza contador de NPCs
+        doentes = 0;
+        saudaveis = 0;
+        foreach(GameObject go in outros) {
+            ControleNPC n = go.GetComponent<ControleNPC>();
+            if (n.doente) {
+                doentes++;
+            } else {
+                saudaveis++;
             }
         }
         atualizarTextos();

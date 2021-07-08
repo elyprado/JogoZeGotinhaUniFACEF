@@ -36,7 +36,7 @@ public class ScriptMenu : MonoBehaviour
 
     public void iniciarJogo() {
         som.Play();
-        SceneManager.LoadScene("Unifacef");
+        SceneManager.LoadScene("Unifacef", LoadSceneMode.Single);
     }
 
     public void abrirSobre() {
