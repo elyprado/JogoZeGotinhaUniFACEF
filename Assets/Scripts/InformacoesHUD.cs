@@ -20,6 +20,7 @@ public class InformacoesHUD : MonoBehaviour
         atualizarTextos();
         Invoke("inicializaJogo", 1.0f);
     }
+    
     void inicializaJogo() {
         //coloca um % dos NPCs como doentes aleatoriamente
         GameObject[] outros = GameObject.FindGameObjectsWithTag("NPC");

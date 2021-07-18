@@ -20,6 +20,8 @@ public class ControleJogador : MonoBehaviour
     private AudioSource somPulo;
     private AudioSource somHospital;
     private AudioSource somVacinar;
+    private AudioSource somDancinha;
+    private AudioSource somFundo;
     private bool chao = true;
     private bool dancando = false;
 
@@ -37,11 +39,16 @@ public class ControleJogador : MonoBehaviour
     public GameObject seta;
     private int quantLoopsSeta = 0;
     public GameObject painelPause;
+    public GameObject painelInstrucoes;
 
     void Start()
     {
         pausado = false;
         painelPause.SetActive (false);
+        if (painelInstrucoes!=null) {
+            painelInstrucoes.SetActive (true);
+            pausado = true;
+        }
 
         hud = UnityEngine.Object.FindObjectOfType<InformacoesHUD>() ;
         
@@ -51,9 +58,11 @@ public class ControleJogador : MonoBehaviour
         rotation.y = transform.eulerAngles.y;
 
         somPegaNPC = GetComponents<AudioSource>()[0];
+        somFundo = GetComponents<AudioSource>()[1];
         somPulo = GetComponents<AudioSource>()[2];
         somHospital = GetComponents<AudioSource>()[3];
         somVacinar = GetComponents<AudioSource>()[4];
+        somDancinha = GetComponents<AudioSource>()[6];
         animator = gameObject.transform.GetChild (1).gameObject.GetComponent<Animator> ();
 
 
@@ -86,7 +95,14 @@ public class ControleJogador : MonoBehaviour
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
             float curSpeedX = speed * Input.GetAxis("Vertical");
-            float curSpeedY = speed * Input.GetAxis("Horizontal");
+            float curSpeedY = 0;
+            
+            //speed * Input.GetAxis("Horizontal");
+            if (Input.GetButton("Fire1")) {
+                curSpeedY = speed * -1;
+            } else if (Input.GetButton("Fire2")) {
+                curSpeedY = speed * 1;
+            }
             if (Input.GetButton("Fire3") && curSpeedX>0) {
                 //correndo
                 curSpeedX = curSpeedX * 3;
@@ -117,10 +133,16 @@ public class ControleJogador : MonoBehaviour
         // Move o jogador
         characterController.Move(moveDirection * Time.deltaTime);
 
-        if (Input.GetButton("Fire1")) {
-            rotation.y -= 1 * lookSpeed;
-        } else if (Input.GetButton("Fire2")) { 
-            rotation.y += 1 * lookSpeed;
+        float curSpeedGiro = 0.8f;
+        if (Input.GetButton("Fire3")) {
+            curSpeedGiro = curSpeedGiro * 2;
+        }
+        
+        if (Input.GetAxis("Horizontal")<0) {
+            rotation.y -= curSpeedGiro * lookSpeed;
+            
+        } else if (Input.GetAxis("Horizontal")>0) { 
+            rotation.y += curSpeedGiro * lookSpeed;
         } else {
             rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
         }
@@ -270,12 +292,15 @@ public class ControleJogador : MonoBehaviour
     }
 
     void iniciarDanca() {
+        somFundo.Stop();
+        somDancinha.Play();
+
         animator.SetInteger("lado", 0);
         animator.SetInteger("frente", 0);
         animator.SetBool("pulando", false);
         animator.SetBool("dancando", true);
         dancando = true;
-        Invoke("pararDanca", 5.0f);
+        Invoke("pararDanca", 2.5f);
         moveDirection = Vector3.zero;
     }
 
@@ -286,12 +311,13 @@ public class ControleJogador : MonoBehaviour
         if (cena == "Unifacef") {
             SceneManager.LoadScene("Franca",LoadSceneMode.Single);
         } else if (cena == "Franca") {
-            SceneManager.LoadScene("RioDeJaneiro",LoadSceneMode.Single);
-        } else if (cena == "RioDeJaneiro") {
-            SceneManager.LoadScene("MinasGerais",LoadSceneMode.Single);
-        } else if (cena == "MinasGerais") {
             SceneManager.LoadScene("Bahia",LoadSceneMode.Single);
         } else if (cena == "Bahia") {
+            SceneManager.LoadScene("MinasGerais",LoadSceneMode.Single);
+        } else if (cena == "MinasGerais") {
+            SceneManager.LoadScene("RioDeJaneiro",LoadSceneMode.Single);
+        } else if (cena == "RioDeJaneiro") {
+            Application.OpenURL("https://forms.gle/6uFef6bEZcjP9Rtx5");
             SceneManager.LoadScene("Unifacef",LoadSceneMode.Single);
         }
     }
@@ -317,5 +343,8 @@ public class ControleJogador : MonoBehaviour
     public void sairJogo() {
         SceneManager.LoadScene("MenuInicial");
     }
-
+    public void fecharInstrucoes() {
+        pausado = false;
+        painelInstrucoes.SetActive (false);
+    }
 }

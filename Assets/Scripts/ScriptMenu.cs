@@ -47,4 +47,7 @@ public class ScriptMenu : MonoBehaviour
         som.Play();
         sobre.SetActive (false);
     }
+    public void abrirFaleConosco() {
+         Application.OpenURL("https://forms.gle/6uFef6bEZcjP9Rtx5");
+    }
 }

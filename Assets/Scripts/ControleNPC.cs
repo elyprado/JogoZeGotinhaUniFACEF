@@ -149,7 +149,7 @@ public class ControleNPC : MonoBehaviour {
 
         if (hospitalizado==true) {
             tempoHospital += Time.deltaTime;
-            if (tempoHospital > 60) { //tempo para ficar curado em segundos
+            if (tempoHospital > 360) { //tempo para ficar curado em segundos
                 //ativa todos os renders do npc (tornar visivel)
                 Renderer[] renders = gameObject.GetComponentsInChildren<Renderer>();
                 foreach (Renderer r in renders) {
