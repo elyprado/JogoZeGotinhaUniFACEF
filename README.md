@@ -13,9 +13,9 @@ Responda por favor este rápido questionário:
 
 ## Instalação
 
-* [Windows](https://unifacefedu-my.sharepoint.com/:u:/g/personal/elyfprado_unifacef_edu_br/Ea37yfcatvtPiW7I10vpJ_EBf-anl9bOWM1HBOvhZnGpbQ?e=hhktrc)
-* [Linux](https://unifacefedu-my.sharepoint.com/:u:/g/personal/elyfprado_unifacef_edu_br/ETp231pGropLlPU2FJmgkvcBS0pwJdkPS_i5JnkzYR-pZw?e=8Hqsjp)
-* [MacOS](https://unifacefedu-my.sharepoint.com/:u:/g/personal/elyfprado_unifacef_edu_br/Eb_TUgfaeyFJoculCNGq3fgB20Hx9Xkc7Tl7A_7LhxqmXQ?e=J5ItBg)
+* [Windows](https://server.sistemaagely.com.br/getArquivo?file=JogoZeGotinhaUniFACEF-Windows.zip)
+* [Linux](https://server.sistemaagely.com.br/getArquivo?file=JogoZeGotinhaUniFACEF-Linux.zip)
+* [MacOS](https://server.sistemaagely.com.br/getArquivo?file=JogoZeGotinhaUniFACEF-Macos.app.zip)
 
 
 ## Contribuições
