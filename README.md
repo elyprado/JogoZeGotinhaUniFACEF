@@ -2,7 +2,7 @@
 
 Jogo desenvolvido por alunos do curso de Engenharia de Software da [Uni-FACEF](https://www.unifacef.com.br/) (Centro Universitario de Franca), turma de 2019, sob orientação do professor Me. Ely Fernando do Prado (elyfprado@gmail.com).
 
-Durante a disciplina de Desenvolvimento de Jogos Digitais I foi utiliza metodologia ativa de aprendizagem, de maneira que no 1o semestre de 2021 todos alunos da turma estiveram ativamente envolvidos no desenvolvimento deste game com o objetivo principal de conscientizar a população sobre a importância da vacinação, uso correto de máscaras e distanciamento social para combater a pandemia da Covid-19.
+Durante a disciplina de Desenvolvimento de Jogos Digitais I foi utilizada metodologia ativa de aprendizagem, de maneira que no 1o semestre de 2021 todos alunos da turma estiveram ativamente envolvidos no desenvolvimento deste game com o objetivo principal de conscientizar a população sobre a importância da vacinação, uso correto de máscaras e distanciamento social para combater a pandemia da Covid-19.
 
 ## Fale conosco
 Olá, gostaríamos de de conhecer melhor você, e principalmente saber sua opinião sobre nosso jogo.
