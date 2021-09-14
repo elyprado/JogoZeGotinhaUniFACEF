@@ -74,19 +74,24 @@ public class ScriptMenu : MonoBehaviour
 
     
     private IEnumerator requestPost()  {
-        string url = "http://34.233.176.86:3334/jogador";
+      
+        string url = "https://sistemaagely.com.br:8345/elyze/ZeGotinha";
+        Debug.Log("requestPost: " + url);
         WWWForm form = new WWWForm();
         form.AddField("nome", nome.text);
         UnityWebRequest www = UnityWebRequest.Post(url, form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError) {
+            Debug.Log("ERROR");
             Debug.Log("Erro conexão: " + www.error);
         } else {
+             Debug.Log("OK!!!");
             Debug.Log(www.downloadHandler.text);
             
             SceneManager.LoadScene("Unifacef", LoadSceneMode.Single);
         }
+
     }
 
 }
