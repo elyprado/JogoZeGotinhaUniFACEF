@@ -41,13 +41,24 @@ public class ControleJogador : MonoBehaviour
     public GameObject painelPause;
     public GameObject painelInstrucoes;
 
+    public GameObject btnPular;
+    public GameObject btnCorrer;
+    public GameObject btnEsquerda;
+    public GameObject btnDireita;
+    public GameObject btnAcima;
+    public GameObject btnAbaixo;
+    public GameObject btnMenu;
+
     void Start()
     {
         pausado = false;
         painelPause.SetActive (false);
         if (painelInstrucoes!=null) {
+            esconderControles();
             painelInstrucoes.SetActive (true);
             pausado = true;
+        } else {
+            mostrarControles();
         }
 
         hud = UnityEngine.Object.FindObjectOfType<InformacoesHUD>() ;
@@ -96,6 +107,12 @@ public class ControleJogador : MonoBehaviour
             Vector3 right = transform.TransformDirection(Vector3.right);
             float curSpeedX = speed * Input.GetAxis("Vertical");
             float curSpeedY = 0;
+
+            if (btnAcima.GetComponent<EventoBotao>().buttonPressed) {
+                curSpeedX = speed * 1;
+            } else if (btnAbaixo.GetComponent<EventoBotao>().buttonPressed) {
+                curSpeedX = speed * -1;
+            }
             
             //speed * Input.GetAxis("Horizontal");
             if (Input.GetButton("Fire1")) {
@@ -103,7 +120,7 @@ public class ControleJogador : MonoBehaviour
             } else if (Input.GetButton("Fire2")) {
                 curSpeedY = speed * 1;
             }
-            if (Input.GetButton("Fire3") && curSpeedX>0) {
+            if ((Input.GetButton("Fire3") || btnCorrer.GetComponent<EventoBotao>().buttonPressed) && curSpeedX>0) {
                 //correndo
                 curSpeedX = curSpeedX * 3;
             }
@@ -118,7 +135,7 @@ public class ControleJogador : MonoBehaviour
            
            
             animator.SetBool("pulando", false);
-            if (Input.GetButton("Jump"))
+            if (Input.GetButton("Jump") || btnPular.GetComponent<EventoBotao>().buttonPressed)
             {
                 moveDirection.y = jumpSpeed;
                 somPulo.Play();
@@ -138,25 +155,28 @@ public class ControleJogador : MonoBehaviour
             curSpeedGiro = curSpeedGiro * 2;
         }
         
-        if (Input.GetAxis("Horizontal")<0) {
+        if (Input.GetAxis("Horizontal")<0 ||  btnEsquerda.GetComponent<EventoBotao>().buttonPressed) {
             rotation.y -= curSpeedGiro * lookSpeed;
             
-        } else if (Input.GetAxis("Horizontal")>0) { 
+        } else if (Input.GetAxis("Horizontal")>0 ||  btnDireita.GetComponent<EventoBotao>().buttonPressed) { 
             rotation.y += curSpeedGiro * lookSpeed;
-        } else {
-            rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
         }
 
         // Gira a Câmera
-
-        rotation.x += -Input.GetAxis("Mouse Y") * lookSpeed;
+        //&& ! UNITY_EDITOR
+        #if UNITY_ANDROID==false && UNITY_IOS==false
+            rotation.x += -Input.GetAxis("Mouse Y") * lookSpeed;
+            rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
+        #endif
+       
         rotation.x = Mathf.Clamp(rotation.x, -lookXLimit, lookXLimit);
         playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 0, 0);
         transform.eulerAngles = new Vector2(0, rotation.y);
     
-        if(Input.GetKeyDown(KeyCode.Escape) == true || Input.GetKeyDown(KeyCode.JoystickButton7))
+    
+        if(Input.GetKeyDown(KeyCode.Escape) == true || Input.GetKeyDown(KeyCode.JoystickButton7) || btnMenu.GetComponent<EventoBotao>().buttonPressed)
         {
-            abrirMenuPause();
+                abrirMenuPause();
         }
     
         quantLoopsSeta++;
@@ -171,7 +191,7 @@ public class ControleJogador : MonoBehaviour
         if (npc==null) {
             //mostra os doentes
             outros = GameObject.FindGameObjectsWithTag("NPC");
-        } else {
+        } else { 
             //mostra o hospital
             outros = GameObject.FindGameObjectsWithTag("Hospital");
         }
@@ -328,6 +348,7 @@ public class ControleJogador : MonoBehaviour
     }
 
     void abrirMenuPause() {
+        btnMenu.GetComponent<EventoBotao>().buttonPressed = false;
         pausado = true;
         animator.SetInteger("lado", 0);
         animator.SetInteger("frente", 0);
@@ -335,10 +356,12 @@ public class ControleJogador : MonoBehaviour
         animator.SetBool("dancando", false);
         animator.SetBool("vacinando", false);
         painelPause.SetActive (true);
+        esconderControles();
     }
     public void fecharMenuPause() {
         pausado = false;
         painelPause.SetActive (false);
+        mostrarControles();
     }
     public void sairJogo() {
         SceneManager.LoadScene("MenuInicial");
@@ -346,5 +369,27 @@ public class ControleJogador : MonoBehaviour
     public void fecharInstrucoes() {
         pausado = false;
         painelInstrucoes.SetActive (false);
+        mostrarControles();
+    }
+
+    public void mostrarControles() {
+        #if UNITY_ANDROID || UNITY_EDITOR || UNITY_IOS
+            btnPular.SetActive (true);
+            btnCorrer.SetActive (true);
+            btnEsquerda.SetActive (true);
+            btnDireita.SetActive (true);
+            btnAcima.SetActive (true);
+            btnAbaixo.SetActive (true);
+            btnMenu.SetActive (true);
+        #endif
+    }
+    public void esconderControles() {
+        btnPular.SetActive (false);
+        btnCorrer.SetActive (false);
+        btnEsquerda.SetActive (false);
+        btnDireita.SetActive (false);
+        btnAcima.SetActive (false);
+        btnAbaixo.SetActive (false);
+        btnMenu.SetActive (false);
     }
 }

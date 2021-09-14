@@ -2,18 +2,23 @@
  using System.Collections.Generic;
  using UnityEngine;
  using UnityEngine.SceneManagement;
-  using UnityEngine.UI;
+using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class ScriptMenu : MonoBehaviour
 {
 
     public GameObject sobre;
+    public GameObject multiplayer;
+    public InputField nome; 
     private AudioSource som;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         sobre.SetActive (false);
+        multiplayer.SetActive (false);
         som = GetComponents<AudioSource>()[0];
 
     }
@@ -47,7 +52,41 @@ public class ScriptMenu : MonoBehaviour
         som.Play();
         sobre.SetActive (false);
     }
+    public void abrirMultiplayer() {
+        som.Play();
+        multiplayer.SetActive (true);
+    }
+    public void fecharMuliplayer() {
+        som.Play();
+        multiplayer.SetActive (false);
+    }
+    public void iniciarJogoMultiplayer() {
+        som.Play();
+        StartCoroutine(requestPost());
+    }
+
     public void abrirFaleConosco() {
          Application.OpenURL("https://forms.gle/6uFef6bEZcjP9Rtx5");
     }
+
+
+
+
+    
+    private IEnumerator requestPost()  {
+        string url = "http://34.233.176.86:3334/jogador";
+        WWWForm form = new WWWForm();
+        form.AddField("nome", nome.text);
+        UnityWebRequest www = UnityWebRequest.Post(url, form);
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError) {
+            Debug.Log("Erro conexão: " + www.error);
+        } else {
+            Debug.Log(www.downloadHandler.text);
+            
+            SceneManager.LoadScene("Unifacef", LoadSceneMode.Single);
+        }
+    }
+
 }
